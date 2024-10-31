@@ -10,23 +10,31 @@
 #include <ctime>
 
 using namespace std;
-int countCharacter(string str);
+int countVowel(string str);
 
 int main(void)
 {
 	string input;
+	int numVowels;
 	while (true) {
 		cout << "Enter a string or Q to quit: ";
-		getline(cin, input);
+		cin >> input;
 		if (input == "Q") break;
-
+		numVowels = countVowel(input);
+		cout << "Vowel Count: " << numVowels << endl;
 	}
 	return 0;
 }
 
-int countCharacter(string str)
+int countVowel(string input)
 {
-	int numofcharacters;
-	numofcharacters = str.length();
-	return numofcharacters;
+	int numOfVowels = 0;
+	for (int i = 0; i < input.length(); i++)
+	{
+		if (input[i] == 'a' or input[i] == 'e' or input[i] == 'i' or input[i] == 'o' or input[i] == 'u' or input[i] == 'A' or input[i] == 'E' or input[i] == 'I' or input[i] == 'O' or input[i] == 'U')
+		{
+			numOfVowels++;
+		}
+	}
+	return numOfVowels;
 }
